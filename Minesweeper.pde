@@ -30,14 +30,16 @@ public void draw(){
         displayWinningMessage();
 }
 public boolean isWon(){
-    //your code here
+    if(buttons[][].length == 0){
+        return true;
+    }
     return false;
 }
 public void displayLosingMessage(){
-    //your code here
+    text("Too bad");
 }
 public void displayWinningMessage(){
-    //your code here
+    text("You win!");
 }
 public boolean isValid(int r, int c){
   if(r < numRows && c < numCols && r >= 0 && c >= 0){
@@ -79,13 +81,17 @@ public class MSButton{
     // called by manager
     public void mousePressed(){
         clicked = true;
-        if(){
+        if(!mines.contains(buttons[myRow][myCol])){
           if(flagged == false){
             clicked = false;
           }
           flagged = !clicked;
         } else if(mines.contains(buttons[myRow][myCol])){
-          displayLosingMessage();
+            displayLosingMessage();
+        } else if(countMines(myRow, myCol) > 0){
+            myLabel = text(countMines(myRow, myCol));
+        } else{
+            buttons[myRow][myCol].mousePressed();
         }
     }
     public void draw(){    
