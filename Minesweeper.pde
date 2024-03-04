@@ -28,13 +28,9 @@ public void draw(){
     background( 0 );
     if(isWon() == true){
         displayWinningMessage();
-        System.out.println(1);
     }
 }
 public boolean isWon(){
-    if(){
-        return true;
-    }
     return false;
 }
 public void displayLosingMessage(){
