@@ -34,10 +34,21 @@ public boolean isWon(){
     return false;
 }
 public void displayLosingMessage(){
-    text("Too bad", 200, 200);
+    button[0][6] = "T";
+    button[0][7] = "O";
+    button[0][8] = "O";
+    button[0][10] = "B";
+    button[0][11] = "A";
+    button[0][12] = "D";
 }
 public void displayWinningMessage(){
-    text("You win!", 200, 200);
+    button[0][6] = "Y";
+    button[0][7] = "O";
+    button[0][8] = "U";
+    button[0][10] = "W";
+    button[0][11] = "I";
+    button[0][12] = "N";
+    button[0][13] = "!";
 }
 public boolean isValid(int r, int c){
   if(r < numRows && c < numCols && r >= 0 && c >= 0){
