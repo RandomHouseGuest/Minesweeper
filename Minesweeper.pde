@@ -92,8 +92,8 @@ public class MSButton{
             myLabel = "" + countMines(myRow, myCol);
             text(myLabel, 200, 0);
         } else{
-                buttons[myRow][myCol-1].mousePressed();
-              }
+            buttons[myRow][myCol].mousePressed();
+        }
     }
     public void draw(){    
         if(flagged){
