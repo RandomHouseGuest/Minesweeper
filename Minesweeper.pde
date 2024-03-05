@@ -4,6 +4,7 @@ public static final int numRows = 20;
 public static final int numCols = 20;
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> mines; //ArrayList of just the minesweeper buttons that are mined
+public static int count = numRows*numCols;
 void setup (){
     size(400, 400);
     textAlign(CENTER,CENTER);
@@ -18,11 +19,13 @@ void setup (){
     setMines();
 }
 public void setMines(){
+  for(int i = 0; i <= 20; i++){
     int row = (int) (Math.random()*(numRows-1));
     int col = (int) (Math.random()*(numCols-1));
     if(!mines.contains(buttons[row][col])){
       mines.add(buttons[row][col]);
     }
+  }
 }
 public void draw(){
     background( 0 );
@@ -31,6 +34,9 @@ public void draw(){
     }
 }
 public boolean isWon(){
+    if((count-20) == 0){
+        return true;
+    }
     return false;
 }
 public void displayLosingMessage(){
@@ -78,6 +84,7 @@ public class MSButton{
     }
     // called by manager
     public void mousePressed(){
+        count--;
         clicked = true;
         if(mouseButton == RIGHT){
           if(flagged == false){
